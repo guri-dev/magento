@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Guri_StoreLocator::storelocator" title="Store Locator" module="Guri_StoreLocator" sortOrder="51" resource="Guri_StoreLocator::storelocator"/>
+        <add id="Guri_StoreLocator::location" title="Manage Locations" module="Guri_StoreLocator" sortOrder="10" action="guri_storelocator/location" resource="Guri_StoreLocator::location" parent="Guri_StoreLocator::storelocator"/>
+        <add id="Guri_StoreLocator::hello_configuration" title="Location Attributes" module="Guri_StoreLocator" sortOrder="99" parent="Guri_StoreLocator::storelocator" action="adminhtml/system_config/edit/section/storelocator" resource="Guri_StoreLocator::helloworld_configuration"/>
+    </menu>
+</config>
+

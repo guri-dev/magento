@@ -1,0 +1,15 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="guri_storelocator_location_listing_data_source" xsi:type="string">Guri\StoreLocator\Model\ResourceModel\Location\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Guri\StoreLocator\Model\ResourceModel\Location\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">guri_storelocator_location</argument>
+            <argument name="resourceModel" xsi:type="string">Guri\StoreLocator\Model\ResourceModel\Location</argument>
+        </arguments>
+    </virtualType>
+</config>
