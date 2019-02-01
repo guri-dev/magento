@@ -19,7 +19,7 @@ class Index extends \Magento\Backend\App\Action
 	{
         try{
             $resultPage = $this->resultPageFactory->create();
-            $resultPage->getConfig()->getTitle()->prepend((__('Locations')));
+            $resultPage->getConfig()->getTitle()->prepend((__('Location')));
             return $resultPage; 
         } catch(Exception $e)
         {

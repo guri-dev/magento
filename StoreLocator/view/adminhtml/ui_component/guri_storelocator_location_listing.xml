@@ -31,6 +31,39 @@
             </argument>
         </argument>
     </dataSource>
+    <listingToolbar name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="sticky" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <paging name="listing_paging"/>
+        <exportButton name="export_button"/>
+        <filters name="listing_filters" />
+        <filterSearch name="fulltext"/>
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
+                </item>
+            </argument>
+            <action name="delete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="guri_storelocator/location/massDelete"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete Post</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+    </listingToolbar>
     <columns name="spinner_columns">
         <selectionsColumn name="ids">
             <argument name="data" xsi:type="array">
@@ -84,31 +117,13 @@
                 </item>
             </argument>
         </column>
-    </columns>
-    <listingToolbar name="listing_top">
-        <argument name="data" xsi:type="array">
-            <item name="config" xsi:type="array">
-                <item name="sticky" xsi:type="boolean">true</item>
-            </item>
-        </argument>
-    </listingToolbar>
-    <listingToolbar name="listing_top">
-        <bookmark name="bookmarks"/>
-    </listingToolbar>
-    <listingToolbar name="listing_top">
-        <columnsControls name="columns_controls"/>
-    </listingToolbar>
-    <listingToolbar name="listing_top">
-        <filterSearch name="fulltext"/>
-    </listingToolbar>
-    <listingToolbar name="listing_top">
-        <filters name="listing_filters" />
-    </listingToolbar>
-    <listingToolbar name="listing_top">
-        <paging name="listing_paging"/>
-    </listingToolbar>
-    <listingToolbar name="listing_top">
-        <exportButton name="export_button"/>
-    </listingToolbar>
+        <column name="action">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Action</item>
+                </item>
+            </argument>
+        </column>
+    </columns>    
 </listing>
 
