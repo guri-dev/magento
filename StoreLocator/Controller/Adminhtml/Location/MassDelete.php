@@ -24,7 +24,7 @@ class MassDelete extends \Magento\Backend\App\Action {
             foreach ($logCollection as $item) {
                 $item->delete();
             }
-            $this->messageManager->addSuccess(__('Log Deleted Successfully.'));
+            $this->messageManager->addSuccess(__('Locations Deleted Successfully.'));
         }catch(Exception $e){
             $this->messageManager->addError($e->getMessage());
         }

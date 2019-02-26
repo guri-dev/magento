@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">guri_storelocator_location_form.location_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">STORE LOCATOR OPTIONS</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save_and_continue" class="Guri\StoreLocator\Block\Adminhtml\Location\SaveAndContinueButton"/>
+            <button name="save" class="Guri\StoreLocator\Block\Adminhtml\Location\SaveButton"/>
+            <button name="reset" class="Guri\StoreLocator\Block\Adminhtml\Location\ResetButton"/>
+            <button name="delete" class="Guri\StoreLocator\Block\Adminhtml\Location\DeleteButton"/>
+            <button name="back" class="Guri\StoreLocator\Block\Adminhtml\Location\BackButton"/>
+        </buttons>
+        <layout>
+            <navContainerName>left</navContainerName>
+            <type>tabs</type>
+        </layout>
+        <namespace>guri_storelocator_location_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>guri_storelocator_location_form.location_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="location_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="guri_storelocator/location/save"/>
+        </settings>
+        <dataProvider class="Guri\StoreLocator\Model\Location\DataProvider" name="location_form_data_source">
+            <settings>
+                <requestFieldName>location_id</requestFieldName>
+                <primaryFieldName>location_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">General Information</item>
+            </item>
+        </argument>
+        <settings>
+            <label translate="true">General Information</label>
+        </settings>
+        <field name="location_id" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">general</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>location_id</dataScope>
+            </settings>
+        </field>
+        <field name="location_name" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">general</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Location Name</label>
+                <dataScope>location_name</dataScope>
+            </settings>
+        </field>
+        <field name="location_country"  formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">block</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Country</label>
+                <dataScope>location_country</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Guri\StoreLocator\Model\Location\Source\Countries"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="location_state"  formElement="input">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">State</label>
+                <dataScope>location_state</dataScope>
+            </settings>
+        </field>
+        <field name="location_city"  formElement="input">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">City</label>
+                <dataScope>location_city</dataScope>
+            </settings>
+        </field>
+        <field name="location_description"  formElement="textarea">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Description</label>
+                <dataScope>location_description</dataScope>
+            </settings>
+        </field>
+        <field name="location_zip"  formElement="input">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Zip</label>
+                <dataScope>location_zip</dataScope>
+            </settings>
+        </field>
+        <field name="location_address"  formElement="input">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Address</label>
+                <dataScope>location_address</dataScope>
+            </settings>
+        </field>
+        <field name="location_phone"  formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Phone</label>
+                <dataScope>location_phone</dataScope>
+            </settings>
+        </field>
+        <field name="location_email"  formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Email</label>
+                <dataScope>location_email</dataScope>
+            </settings>
+        </field>
+        <field name="location_website"  formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Website</label>
+                <dataScope>location_website</dataScope>
+            </settings>
+        </field>
+        <field name="location_status"  formElement="select">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Status</label>
+                <dataScope>location_status</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Guri\StoreLocator\Model\Location\Source\Status"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="location_show_shedule"  formElement="select">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Show Schedule</label>
+                <dataScope>location_show_shedule</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Guri\StoreLocator\Model\Location\Source\Schedule"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="location_position"  formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Location Position</label>
+                <dataScope>location_position</dataScope>
+            </settings>
+        </field>
+        <field name="location_image"  formElement="file">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Image</label>
+                <dataScope>location_image</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+    <fieldset name="location_on_map">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Location on Map</item>
+            </item>
+        </argument>
+        <settings>
+            <label translate="true">Location on Map</label>
+        </settings>
+        <field name="location_latitude"  formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">location_on_map</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Latitude</label>
+                <dataScope>location_latitude</dataScope>
+            </settings>
+        </field>
+        <field name="location_longitude"  formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">location_on_map</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Longitude</label>
+                <dataScope>location_longitude</dataScope>
+            </settings>
+        </field>
+        <field name="googlemap">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="sortOrder" xsi:type="number">150</item>
+                <item name="dataType" xsi:type="string">text</item>
+                <item name="template" xsi:type="string">ui/form/field</item>
+                <item name="elementTmpl" xsi:type="string">Guri_StoreLocator/form/elements/googlemap</item>
+                <item name="label" translate="true" xsi:type="string">Google Map</item>
+                <item name="formElement" xsi:type="string">input</item>
+                <item name="source" xsi:type="string">popup</item>
+                <item name="dataScope" xsi:type="string">googlemap</item>
+            </item>
+        </argument>
+    </field>
+    </fieldset>
+    <fieldset name="store_schedule">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Store Schedule</item>
+            </item>
+        </argument>
+        <settings>
+            <label translate="true">Store Schedule</label>
+        </settings>
+    </fieldset>
+    <fieldset name="store_attribute">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Store Attributes</item>
+            </item>
+        </argument>
+        <settings>
+            <label translate="true">Store Attributes</label>
+        </settings>
+        <field name="location_parking_availability"  formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">block</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Parking Availability</label>
+                <dataScope>location_parking_availability</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Guri\StoreLocator\Model\Location\Source\Schedule"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="location_atm"  formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">block</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">ATM</label>
+                <dataScope>location_atm</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Guri\StoreLocator\Model\Location\Source\Schedule"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="location_payment_methods"  formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">block</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Payment Methods</label>
+                <dataScope>location_payment_methods</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Guri\StoreLocator\Model\Location\Source\PaymentMethods"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+    </fieldset>
+</form>
