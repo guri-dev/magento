@@ -18,7 +18,7 @@ define([
                   }).done(function (data) {
                         var dynamic_html = '';
                         $.each(data, function(index, element) {
-                            dynamic_html += '<span name="leftLocation" data-mapid="gurilocator-map-canvas5c4af189374a6" data-amid="">';
+                            dynamic_html += '<span name="leftLocation" data-mapid="gurilocator-map-canvas" data-amid="'+element.location_id+'">';
                             dynamic_html += '<div class="location_header">'+element.location_name+'</div><br>';
                             dynamic_html += 'City: '+element.location_city+' <br>';
                             dynamic_html += 'City: '+element.location_zip+' <br>';

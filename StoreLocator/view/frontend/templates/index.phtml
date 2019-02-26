@@ -45,14 +45,15 @@
             </div>
     <div class="gurilocator_center">
         <div class="gurilocator_mapblock" style="width: ; height: ;">
-            map will show here
+            Google Map now require credit card to use<br>
+            pay-as-you-go :)
         </div>
         <div class="gurilocator_store_list" style="width: ; height: ;">
         <div id="gurilocator_store_list">
             <?php if(count($block->listLocations()) > 0) {
                 foreach ($block->listLocations() as $key => $value) {
                 ?>
-            <span name="leftLocation" data-mapid="gurilocator-map-canvas5c4af189374a6" data-amid="<?php echo $value['location_id']?>">
+            <span name="leftLocation" data-mapid="gurilocator-map-canvas" data-amid="<?php echo $value['location_id']?>">
                     <div class="location_header"><?php echo $value['location_name']?></div> <br>
                         City: <?php echo $value['location_city']?> <br>
                         Zip: <?php echo $value['location_zip']?> <br>
@@ -65,6 +66,8 @@
                 </div>
             </span>
             <?php } // for each ?>
+            <?php } else {  ?>
+                <span>No result found</span>
             <?php } ?>
         </div>
         </div>
